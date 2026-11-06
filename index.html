@@ -1,0 +1,208 @@
+<!doctype html>
+<!-- type: software / site-kind gaming. A one-page hub for Carpe Canem, a retro arcade game studio.
+     Deal: theme "Carpe Canem x Moonlit Arcade Cabinet" (chosen with the client, not dealt).
+     Palette: night blue, moon cream, vizsla copper-gold, MOOP cyan/gold/red stripes. Type: Press Start 2P headings, system body.
+     No shader effect, no moment, no scene: the client's own video and screenshot carry the page.
+     Intro: on every load the full clip plays with the voice, the rest of the page appears when it ends; then a muted loop.
+     Skip the intro with ?nointro, or it is skipped for reduced motion and automated browsers.
+     Every path is relative so the page can live on GitHub Pages beside the games. -->
+<html lang="en" data-type="software" data-intro="playing">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carpe Canem: retro arcade games you play in your browser</title>
+<meta name="description" content="Carpe Canem makes retro arcade games. MOOP Monster is out now and plays in your browser.">
+<meta name="site-kind" content="gaming">
+<meta name="page-type" content="software">
+<meta name="theme-color" content="#0a1128">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  /* decide the intro state before first paint, so nothing flashes */
+  (function () {
+    var d = document.documentElement, skip = false;
+    try {
+      skip = /[?&#]nointro/.test(location.search + location.hash) ||
+             navigator.webdriver === true ||
+             window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+    if (skip) d.setAttribute('data-intro', 'done');
+  })();
+</script>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="nav__logo" href="#top">
+      <svg class="moon" viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
+        <path fill="#f4f0d4" d="M4 0h4v1H4zM2 1h8v1H2zM1 2h10v1H1zM0 3h12v6H0zM1 9h10v1H1zM2 10h8v1H2zM4 11h4v1H4z"/>
+        <path fill="#cfc890" d="M3 4h2v2H3zM7 6h2v2H7zM8 3h1v1H8z"/>
+      </svg>
+      Carpe Canem
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a class="nav__link" href="#games">Games</a>
+      <a class="nav__link" href="#chapters">Chapters</a>
+      <a class="nav__link" href="#kennel">Kennel</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play<span class="nav__long">&nbsp;MOOP Monster</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero" aria-labelledby="hero-h">
+    <!-- the background loop (short clip), always muted -->
+    <video class="hero__video" id="loop" muted loop playsinline preload="auto" poster="assets/poster.png" aria-hidden="true">
+      <source src="assets/howl-loop.webm" type="video/webm">
+    </video>
+    <!-- the full intro clip, shown only while the intro plays (the sound comes from main.js) -->
+    <video class="hero__video hero__video--intro" id="film" muted playsinline preload="auto" poster="assets/poster.png" aria-hidden="true">
+      <source src="assets/howl.webm" type="video/webm">
+    </video>
+
+    <button class="sound-hint" type="button" id="sound-hint">Click anywhere for sound</button>
+
+    <div class="wrap hero__wrap">
+      <div class="hero__ctl" id="ctl">
+        <button class="icon-btn" type="button" id="pause" aria-label="Pause the video" aria-pressed="false">
+          <svg viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
+            <path class="i-pause" fill="currentColor" d="M3 2h2v8H3zM7 2h2v8H7z"/>
+            <path class="i-play" fill="currentColor" d="M3 2h2v8H3zM5 3h2v6H5zM7 4h2v4H7z"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="howl" aria-label="Hear the howl">
+          <svg viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
+            <path class="i-sound" fill="currentColor" d="M1 4h2l2-2h1v8H5L3 8H1zM8 4h1v4H8zM10 3h1v6h-1z"/>
+            <path class="i-skip" fill="currentColor" d="M2 2h2v8H2zM5 2h2v2H5zM7 4h2v2H7zM9 6h1v0zM7 6h2v2H7zM5 8h2v2H5z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hero-box" id="hero-box">
+        <h1 id="hero-h"><span class="h1__name">Carpe Canem</span><span class="h1__sub">Seize the dog.<br/>Play the games.</span></h1>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
+          <a class="btn btn--secondary" href="#games">See the games</a>
+        </div>
+        <p class="hero__fact">1 game out now. It plays in your browser.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="games" aria-labelledby="games-h">
+    <div class="wrap">
+      <h2 id="games-h">Games</h2>
+      <article class="cab grid">
+        <a class="cab__screen span-6" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener" aria-label="Play MOOP Monster">
+          <img src="assets/moop-monster.png" width="1000" height="900" alt="MOOP Monster title screen with its high-score table" loading="lazy">
+        </a>
+        <div class="cab__copy span-5 start-8">
+          <p class="label">Chapter I</p>
+          <h3>MOOP Monster</h3>
+          <p class="lead">An enjoyable experience.</p>
+          <dl class="rows">
+            <div><dt>Move</dt><dd>Arrows or WASD</dd></div>
+            <div><dt>Jump</dt><dd>Space</dd></div>
+            <div><dt>Built in</dt><dd>High scores, easy mode, pause and mute</dd></div>
+          </dl>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec sec--alt" id="chapters" aria-labelledby="chapters-h">
+    <div class="wrap">
+      <h2 id="chapters-h">Next arcade games</h2>
+      <div class="grid carts">
+        <div class="cart span-4">
+          <div class="cart__slot"><svg class="cart__art" viewBox="0 0 32 32" aria-hidden="true" shape-rendering="crispEdges">
+            <path fill="#2a3566" d="M4 2h24v22H4z"/>
+            <path fill="#0a1128" d="M8 6h16v10H8z"/>
+            <path fill="#e9b44c" d="M14 8h4v2h-4zM18 10h2v2h-2zM14 12h4v2h-4zM14 16h4v2h-4z" transform="translate(0 -1)"/>
+            <path fill="#66d6f0" d="M8 19h16v2H8z"/>
+            <path fill="#1a2250" d="M6 24h20v6H6z"/>
+            <path fill="#e9b44c" d="M9 25h2v4H9zM13 25h2v4h-2zM17 25h2v4h-2zM21 25h2v4h-2z"/>
+          </svg></div>
+          <p class="label">Chapter II</p>
+          <p class="cart__line">Coming soon</p>
+        </div>
+        <div class="cart span-4">
+          <div class="cart__slot"><svg class="cart__art" viewBox="0 0 32 32" aria-hidden="true" shape-rendering="crispEdges">
+            <path fill="#2a3566" d="M4 2h24v22H4z"/>
+            <path fill="#0a1128" d="M8 6h16v10H8z"/>
+            <path fill="#e9b44c" d="M14 8h4v2h-4zM18 10h2v2h-2zM14 12h4v2h-4zM14 16h4v2h-4z" transform="translate(0 -1)"/>
+            <path fill="#e0483a" d="M8 19h16v2H8z"/>
+            <path fill="#1a2250" d="M6 24h20v6H6z"/>
+            <path fill="#e9b44c" d="M9 25h2v4H9zM13 25h2v4h-2zM17 25h2v4h-2zM21 25h2v4h-2z"/>
+          </svg></div>
+          <p class="label">Chapter III</p>
+          <p class="cart__line">Coming soon</p>
+        </div>
+        <div class="cart span-4">
+          <div class="cart__slot"><svg class="cart__art" viewBox="0 0 32 32" aria-hidden="true" shape-rendering="crispEdges">
+            <path fill="#2a3566" d="M4 2h24v22H4z"/>
+            <path fill="#0a1128" d="M8 6h16v10H8z"/>
+            <path fill="#e9b44c" d="M14 8h4v2h-4zM18 10h2v2h-2zM14 12h4v2h-4zM14 16h4v2h-4z" transform="translate(0 -1)"/>
+            <path fill="#e9b44c" d="M8 19h16v2H8z"/>
+            <path fill="#1a2250" d="M6 24h20v6H6z"/>
+            <path fill="#e9b44c" d="M9 25h2v4H9zM13 25h2v4h-2zM17 25h2v4h-2zM21 25h2v4h-2z"/>
+          </svg></div>
+          <p class="label">Chapter IV</p>
+          <p class="cart__line">Coming soon</p>
+        </div>
+      </div>
+      <p class="chapters__note">New games are published on GitHub first. <a class="link" href="https://github.com/carpe-canem" target="_blank" rel="noopener">Follow Carpe Canem on GitHub</a></p>
+    </div>
+  </section>
+
+  <section class="sec" id="kennel" aria-labelledby="kennel-h">
+    <div class="wrap">
+      <div class="grid kennel">
+        <div class="kennel__art span-5" role="img" aria-label="Pixel art of a vizsla howling at the moon"></div>
+        <div class="kennel__copy span-6 start-7">
+          <h2 id="kennel-h">The kennel</h2>
+          <p class="lead"></p>
+          <dl class="rows">
+            <div><dt>Studio</dt><dd>Carpe Canem</dd></div>
+            <div><dt>Games out</dt><dd>1</dd></div>
+            <div><dt>Where they live</dt><dd>GitHub, ready to play in your browser</dd></div>
+          </dl>
+          <div class="btn-row">
+            <a class="btn btn--secondary" href="https://github.com/carpe-canem" target="_blank" rel="noopener">Carpe Canem on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="closing" id="close">
+  <div class="stripe" aria-hidden="true"></div>
+  <div class="wrap closing__wrap">
+    <h2>Seize the dog.</h2>
+    <p class="lead">Carpe canem. The first game is waiting.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
+    </div>
+    <div class="legal">
+      <span class="legal__brand">Carpe Canem</span>
+      <span>&copy; 2026 Carpe Canem</span>
+      <a class="link" href="https://github.com/carpe-canem" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
