@@ -153,7 +153,7 @@ export default {
     const res = await env.ASSETS.fetch(request);
     const h = new Headers(res.headers);
     h.set('x-robots-tag', 'noindex, nofollow');
-    h.set('referrer-policy', 'no-referrer');
+    h.set('referrer-policy', 'origin');   // OpenStreetMap's tile servers refuse requests with no referrer
     return new Response(res.body, { status: res.status, headers: h });
   },
   async scheduled(event, env, ctx) {
