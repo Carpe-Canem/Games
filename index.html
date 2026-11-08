@@ -45,12 +45,12 @@
       Carpe Canem
     </a>
     <nav class="nav__links" aria-label="Main">
-      <a class="nav__link" href="#games">Games</a>
-      <a class="nav__link" href="#chapters">Chapters</a>
-      <a class="nav__link" href="#kennel">Kennel</a>
+      <a class="nav__link" data-track="nav:games" href="#games">Games</a>
+      <a class="nav__link" data-track="nav:chapters" href="#chapters">Chapters</a>
+      <a class="nav__link" data-track="nav:kennel" href="#kennel">Kennel</a>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play<span class="nav__long">&nbsp;MOOP Monster</span></a>
+      <a class="btn btn--primary" data-track="play-moop:nav" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play<span class="nav__long">&nbsp;MOOP Monster</span></a>
     </div>
   </div>
 </header>
@@ -71,13 +71,13 @@
 
     <div class="wrap hero__wrap">
       <div class="hero__ctl" id="ctl">
-        <button class="icon-btn" type="button" id="pause" aria-label="Pause the video" aria-pressed="false">
+        <button class="icon-btn" type="button" id="pause" data-track="pause-video" aria-label="Pause the video" aria-pressed="false">
           <svg viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
             <path class="i-pause" fill="currentColor" d="M3 2h2v8H3zM7 2h2v8H7z"/>
             <path class="i-play" fill="currentColor" d="M3 2h2v8H3zM5 3h2v6H5zM7 4h2v4H7z"/>
           </svg>
         </button>
-        <button class="icon-btn" type="button" id="howl" aria-label="Hear the howl">
+        <button class="icon-btn" type="button" id="howl" data-track="howl-or-skip-intro" aria-label="Hear the howl">
           <svg viewBox="0 0 12 12" aria-hidden="true" shape-rendering="crispEdges">
             <path class="i-sound" fill="currentColor" d="M1 4h2l2-2h1v8H5L3 8H1zM8 4h1v4H8zM10 3h1v6h-1z"/>
             <path class="i-skip" fill="currentColor" d="M2 2h2v8H2zM5 2h2v2H5zM7 4h2v2H7zM9 6h1v0zM7 6h2v2H7zM5 8h2v2H5z"/>
@@ -88,8 +88,8 @@
       <div class="hero-box" id="hero-box">
         <h1 id="hero-h"><span class="h1__name">Carpe Canem</span><span class="h1__sub">Seize the dog.<br/>Play the games.</span></h1>
         <div class="btn-row">
-          <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
-          <a class="btn btn--secondary" href="#games">See the games</a>
+          <a class="btn btn--primary" data-track="play-moop:hero" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
+          <a class="btn btn--secondary" data-track="see-the-games" href="#games">See the games</a>
         </div>
         <p class="hero__fact">1 game out now. It plays in your browser.</p>
       </div>
@@ -100,7 +100,7 @@
     <div class="wrap">
       <h2 id="games-h">Games</h2>
       <article class="cab grid">
-        <a class="cab__screen span-6" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener" aria-label="Play MOOP Monster">
+        <a class="cab__screen span-6" data-track="play-moop:screenshot" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener" aria-label="Play MOOP Monster">
           <img src="assets/moop-monster.png" width="1000" height="900" alt="MOOP Monster title screen with its high-score table" loading="lazy">
         </a>
         <div class="cab__copy span-5 start-8">
@@ -113,7 +113,7 @@
             <div><dt>Built in</dt><dd>High scores, easy mode, pause and mute</dd></div>
           </dl>
           <div class="btn-row">
-            <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
+            <a class="btn btn--primary" data-track="play-moop:game-card" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
           </div>
         </div>
       </article>
@@ -161,7 +161,7 @@
           <p class="cart__line">Coming soon</p>
         </div>
       </div>
-      <p class="chapters__note">New games are published on GitHub first. <a class="link" href="https://github.com/carpe-canem" target="_blank" rel="noopener">Follow Carpe Canem on GitHub</a></p>
+      <p class="chapters__note">New games are published on GitHub first. <a class="link" data-track="github:chapters-note" href="https://github.com/carpe-canem" target="_blank" rel="noopener">Follow Carpe Canem on GitHub</a></p>
     </div>
   </section>
 
@@ -178,7 +178,7 @@
             <div><dt>Where they live</dt><dd>GitHub, ready to play in your browser</dd></div>
           </dl>
           <div class="btn-row">
-            <a class="btn btn--secondary" href="https://github.com/carpe-canem" target="_blank" rel="noopener">Carpe Canem on GitHub</a>
+            <a class="btn btn--secondary" data-track="github:kennel" href="https://github.com/carpe-canem" target="_blank" rel="noopener">Carpe Canem on GitHub</a>
           </div>
         </div>
       </div>
@@ -193,16 +193,17 @@
     <h2>Seize the dog.</h2>
     <p class="lead">Carpe canem. The first game is waiting.</p>
     <div class="btn-row">
-      <a class="btn btn--primary" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
+      <a class="btn btn--primary" data-track="play-moop:footer" href="https://carpe-canem.github.io/MOOP-Monster/" target="_blank" rel="noopener">Play MOOP Monster</a>
     </div>
     <div class="legal">
       <span class="legal__brand">Carpe Canem</span>
       <span>&copy; 2026 Carpe Canem</span>
-      <a class="link" href="https://github.com/carpe-canem" target="_blank" rel="noopener">GitHub</a>
+      <a class="link" data-track="github:footer" href="https://github.com/carpe-canem" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </footer>
 
 <script src="main.js"></script>
+<script src="tracker.js" defer></script>
 </body>
 </html>

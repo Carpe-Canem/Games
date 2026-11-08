@@ -1,0 +1,78 @@
+*{box-sizing:border-box}
+:root{
+  --bg:#0a1128;--bg2:#101a3a;--line:#2a3566;--ink:#f4f0d4;--muted:#b4bedf;
+  --gold:#e9b44c;--cyan:#66d6f0;--red:#e0483a;
+  --mono:ui-monospace,'Cascadia Mono','Courier New',monospace;
+}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;padding:0 20px 40px}
+h1,h2{margin:0;font-family:'Press Start 2P',var(--mono);font-weight:400;text-transform:uppercase}
+h1{font-size:16px}
+h2{font-size:11px;color:var(--gold);margin-bottom:16px;line-height:1.6}
+
+.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:6px solid transparent;
+  border-image:linear-gradient(var(--cyan) 0 2px,var(--gold) 2px 4px,var(--red) 4px 6px) 1;margin-bottom:24px}
+.top__ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+select,input,button{font:inherit;color:var(--ink);background:var(--bg2);border:2px solid var(--line);padding:8px 12px;min-height:40px}
+button{cursor:pointer;background:var(--gold);color:#0a1128;border-color:var(--gold);font-weight:600}
+button:hover{background:#f6c966}
+button.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+button.ghost:hover{border-color:var(--ink)}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--muted)}
+.live i{width:10px;height:10px;background:var(--line)}
+.live.on i{background:#5be37d;box-shadow:0 0 8px #5be37d}
+.live b{color:var(--ink)}
+
+.login{max-width:360px;margin:12vh auto;display:grid;gap:12px}
+.login[hidden],#app[hidden]{display:none}
+.err{color:var(--red);margin:0;min-height:1.5em}
+
+#app{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.kpis{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
+.kpi,.card{background:var(--bg2);border:2px solid var(--line);padding:20px}
+.kpi b{display:block;font:400 26px/1.2 'Press Start 2P',var(--mono);color:var(--ink)}
+.kpi span{color:var(--muted);font-size:13px}
+.wide{grid-column:1/-1}
+.card{min-width:0}
+
+.chart{display:flex;align-items:flex-end;gap:4px;height:160px}
+.chart--short{height:110px}
+.chart .col{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+.chart .col i{display:block;background:var(--cyan);min-height:2px}
+.chart .col i.v2{background:var(--gold);margin-top:2px}
+.chart .col em{font:normal 10px/1 var(--mono);color:var(--muted);text-align:center;margin-top:6px;white-space:nowrap;overflow:hidden}
+.chart .col:hover i{filter:brightness(1.3)}
+.legend{color:var(--muted);font-size:12px;margin-top:10px}
+.legend s{display:inline-block;width:10px;height:10px;margin:0 4px 0 12px;text-decoration:none}
+.legend s:first-child{margin-left:0}
+
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center}
+.bar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar b{font-family:var(--mono)}
+.bar div{grid-column:1/-1;height:6px;background:var(--bg)}
+.bar div i{display:block;height:100%;background:var(--cyan)}
+.refs{margin-top:20px;padding-top:16px;border-top:2px solid var(--line)}
+.empty{color:var(--muted)}
+
+#map{height:420px;background:var(--bg);border:2px solid var(--line)}
+.note{color:var(--muted);font-size:13px;margin:10px 0 0}
+.leaflet-container{font-family:inherit;background:var(--bg)}
+
+.tablewrap{overflow:auto;max-height:560px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{position:sticky;top:0;background:var(--bg2);color:var(--muted);font-weight:600}
+td.ip{font-family:var(--mono)}
+.tag{display:inline-block;padding:1px 8px;border:1px solid var(--line);font-size:12px}
+.tag.click{border-color:var(--gold);color:var(--gold)}
+.tag.view{border-color:var(--cyan);color:var(--cyan)}
+.tag.new{border-color:#5be37d;color:#5be37d;margin-left:4px}
+.foot{color:var(--muted);font-size:12px;margin-top:24px}
+
+@media (max-width:800px){#app{grid-template-columns:1fr}}
+
+/* darken the OpenStreetMap tiles to fit the night theme */
+.leaflet-tile-pane{filter:invert(1) hue-rotate(190deg) brightness(.85) contrast(.9) saturate(.6)}

@@ -1,0 +1,13 @@
+{
+  "name": "carpe-canem-stats",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute carpe-canem-stats --remote --file=schema.sql",
+    "db:init:local": "wrangler d1 execute carpe-canem-stats --local --file=schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "4.157.0"
+  }
+}

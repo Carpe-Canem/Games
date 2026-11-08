@@ -1,0 +1,25 @@
+name = "carpe-canem-stats"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# The admin dashboard (worker/admin) is served by this same Worker, so it is never on the public site.
+[assets]
+directory = "./admin"
+binding = "ASSETS"
+run_worker_first = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "carpe-canem-stats"
+database_id = "PASTE_DATABASE_ID_HERE"   # from `npx wrangler d1 create carpe-canem-stats`; not a secret
+
+[vars]
+# Pages allowed to send events (browser Origin header). localhost is always allowed for testing.
+ALLOWED_ORIGINS = "https://carpe-canem.github.io"
+RETENTION_DAYS = "90"
+
+# Daily purge of rows older than RETENTION_DAYS
+[triggers]
+crons = ["17 4 * * *"]
+
+# The admin token is NOT set here. Run: npx wrangler secret put ADMIN_TOKEN

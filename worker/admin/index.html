@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kennel Stats</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header class="top">
+  <h1>Kennel Stats</h1>
+  <div class="top__ctl">
+    <span class="live" id="live" title="Visitors in the last 5 minutes"><i></i><b id="live-n">0</b> live</span>
+    <select id="range" aria-label="Time range">
+      <option value="1">Last 24 hours</option>
+      <option value="7" selected>Last 7 days</option>
+      <option value="30">Last 30 days</option>
+      <option value="90">Last 90 days</option>
+    </select>
+    <button id="refresh" type="button">Refresh</button>
+    <button id="logout" type="button" class="ghost">Sign out</button>
+  </div>
+</header>
+
+<form id="login" class="login" hidden>
+  <label for="token">Admin token</label>
+  <input id="token" type="password" autocomplete="current-password" required>
+  <button type="submit">Sign in</button>
+  <p id="login-err" class="err" role="alert"></p>
+</form>
+
+<main id="app" hidden>
+  <section class="kpis" id="kpis"></section>
+
+  <section class="card wide">
+    <h2>Visits per day</h2>
+    <div id="daily" class="chart"></div>
+  </section>
+
+  <section class="card wide">
+    <h2>Where they are</h2>
+    <div id="map"></div>
+    <p class="note" id="map-note"></p>
+  </section>
+
+  <section class="card">
+    <h2>What they click</h2>
+    <div id="clicks" class="bars"></div>
+  </section>
+
+  <section class="card">
+    <h2>Countries</h2>
+    <div id="countries" class="bars"></div>
+  </section>
+
+  <section class="card">
+    <h2>When (your local time)</h2>
+    <div id="hours" class="chart chart--short"></div>
+  </section>
+
+  <section class="card">
+    <h2>What they look at</h2>
+    <div id="sections" class="bars"></div>
+  </section>
+
+  <section class="card">
+    <h2>Devices</h2>
+    <div id="devices" class="bars"></div>
+  </section>
+
+  <section class="card">
+    <h2>Browsers &amp; referrers</h2>
+    <div id="browsers" class="bars"></div>
+    <div id="refs" class="bars refs"></div>
+  </section>
+
+  <section class="card wide">
+    <h2>Recent activity</h2>
+    <div class="tablewrap">
+      <table id="recent">
+        <thead><tr><th>Time</th><th>Event</th><th>Location</th><th>ISP</th><th>Device</th><th>Visitor</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<p class="foot">Cookie-free. Visitors are identified only by an anonymous random id kept in their browser. IP addresses are not stored.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

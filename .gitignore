@@ -1,2 +1,5 @@
 .taste-skill/
 shots/
+node_modules/
+.wrangler/
+.dev.vars
