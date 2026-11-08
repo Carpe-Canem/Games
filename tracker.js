@@ -3,7 +3,7 @@
    Nothing is sent when the visitor has Do Not Track / Global Privacy Control on, or for automated browsers.
    Events go to the stats Worker (see worker/README.md). Leave ENDPOINT empty to switch tracking off. */
 (function () {
-  var ENDPOINT = '';   // e.g. 'https://carpe-canem-stats.YOURNAME.workers.dev/collect'
+  var ENDPOINT = 'https://carpe-canem-stats.carpecanem.workers.dev/collect';
   if (window.CC_TRACK_URL) ENDPOINT = window.CC_TRACK_URL;   // lets local testing point at wrangler dev
   if (!ENDPOINT) return;
   if (navigator.webdriver === true || navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true) return;
